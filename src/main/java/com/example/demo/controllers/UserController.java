@@ -14,6 +14,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    public UserController() {
+    }
+
     @PostMapping("/add")
     public ResponseEntity<String> add(@RequestBody User user) {
         if(userService.add(user)) {
@@ -69,5 +72,12 @@ public class UserController {
     @GetMapping("/getCount")
     public String getCount() {
         return userService.getCount();
+    }
+
+    @Override
+    public String toString() {
+        return "UserController{" +
+                "userService=" + userService +
+                '}';
     }
 }

@@ -23,6 +23,10 @@ public class UserRepository {
     private static final String GET_BY_ROLE_QUERY = "SELECT * FROM users WHERE role_id = ?;";
     private static final String GET_BY_NAME_AND_ROLE = "SELECT * FROM users WHERE name = ? AND role_id = ?;";
     private static final String COUNT_QUERY = "SELECT COUNT(users) from users;";
+
+    public UserRepository() {
+    }
+
     public boolean add(User user) {
         var connection = DataSource.getConnection();
         try(var statement = connection.prepareStatement(INSERT_QUERY)) {
@@ -170,5 +174,10 @@ public class UserRepository {
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "UserRepository{}";
     }
 }

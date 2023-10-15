@@ -13,6 +13,9 @@ public class RoleController {
     @Autowired
     private RoleService roleService;
 
+    public RoleController() {
+    }
+
     @PostMapping("/add")
     public ResponseEntity<String> add(@RequestBody Role role) {
         if(roleService.add(role)) {
@@ -58,5 +61,12 @@ public class RoleController {
     @GetMapping("/getCount")
     public String getCount() {
         return roleService.getCount();
+    }
+
+    @Override
+    public String toString() {
+        return "RoleController{" +
+                "roleService=" + roleService +
+                '}';
     }
 }

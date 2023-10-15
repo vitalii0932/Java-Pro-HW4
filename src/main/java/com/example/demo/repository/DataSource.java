@@ -28,4 +28,8 @@ public class DataSource {
         }
     }
 
+    @Override
+    public String toString() {
+        return "DataSource{}";
+    }
 }

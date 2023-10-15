@@ -21,6 +21,9 @@ public class RoleRepository {
     private static final String GET_BY_NAME_QUERY = "SELECT * FROM roles WHERE name = ?;";
     private static final String COUNT_QUERY = "SELECT COUNT(roles) from roles;";
 
+    public RoleRepository() {
+    }
+
     public boolean add(Role role) {
         var connection = DataSource.getConnection();
         try(var statement = connection.prepareStatement(INSERT_QUERY)) {
@@ -122,6 +125,11 @@ public class RoleRepository {
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "RoleRepository{}";
     }
 }
 

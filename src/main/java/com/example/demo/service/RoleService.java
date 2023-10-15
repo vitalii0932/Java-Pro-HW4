@@ -13,6 +13,9 @@ public class RoleService {
     @Autowired
     private RoleRepository roleRepository;
 
+    public RoleService() {
+    }
+
     public boolean add(Role role) {
         return roleRepository.add(role);
     }
@@ -50,5 +53,12 @@ public class RoleService {
             result += String.format("%d\t, %s\n", item.getId(), item.getName());
         }
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "RoleService{" +
+                "roleRepository=" + roleRepository +
+                '}';
     }
 }

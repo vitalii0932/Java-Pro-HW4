@@ -13,6 +13,9 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    public UserService() {
+    }
+
     public boolean add(User user) {
         return userRepository.add(user);
     }
@@ -60,5 +63,12 @@ public class UserService {
             result += String.format("%d\t, %s\t, %d\n", item.getId(), item.getName(), item.getRoleId());
         }
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "UserService{" +
+                "userRepository=" + userRepository +
+                '}';
     }
 }
